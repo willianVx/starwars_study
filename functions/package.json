@@ -1,0 +1,12 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "Test for quality and sanity functions",
+  "scripts": {
+    "dev/sanity_test": "node ./sanity_test/",
+    "dev/quality_test": "node ./quality_test/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "willianvx",
+  "license": "ISC"
+}
