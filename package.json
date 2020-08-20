@@ -1,0 +1,25 @@
+{
+  "name": "starwars_study",
+  "version": "1.0.0",
+  "description": "test",
+  "main": "none",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest --config=jest.config.js --no-cache"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willianVx/starwars_study.git"
+  },
+  "keywords": [
+    "test",
+    "frontend"
+  ],
+  "author": "willianvx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/willianVx/starwars_study/issues"
+  },
+  "homepage": "https://github.com/willianVx/starwars_study#readme"
+}
