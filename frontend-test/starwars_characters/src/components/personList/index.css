@@ -1,5 +1,8 @@
 .personListContainer {
     display: grid;
     justify-content: center;
+    margin: auto;
     grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    max-width: 768px;
+    margin-bottom: 50px;
 }

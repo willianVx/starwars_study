@@ -1,7 +1,8 @@
 .person_container {
+    position: relative;
     width: 270px;
     height: 190px;
-    background-color: rgb(102, 102, 216);
+    background-color: rgb(195 195 218);
     border-radius: 12px;
     padding: 15px;
     margin: auto;

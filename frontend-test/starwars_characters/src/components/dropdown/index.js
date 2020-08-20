@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import './index.css';
 
 const DropDown = ({persons, updatePersonList}) => {
     const [selectedPerson, setSelectedPerson] = useState(persons[0]);
     const handleOption = (e) => {
         e.preventDefault();
-        updatePersonList(selectedPerson.id);
-        console.log(selectedPerson);
+        const newList = updatePersonList(selectedPerson.id);
+        setSelectedPerson(newList[0]);
     }
 
     const onChangeOption = (e) => {
