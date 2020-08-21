@@ -1,5 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { MockedProvider } from "@apollo/client/testing";
+import GET_ALL_PERSON from "../services/queries";
 import PersonList from '../components/personList';
 
 const mockedPersons = [
@@ -70,13 +72,30 @@ const mockedPersons = [
     }
 ]
 
+const mockConn = [
+    {
+    request: {
+        query: GET_ALL_PERSON,
+        variables: {
+            first: 10
+        },
+    },
+    result: {
+        ...mockedPersons
+        }
+    }
+]
 
 describe('personList test', () => {
-    it('Count persons on list', () => {
-        const { container } = render(
-            <PersonList persons={mockedPersons} />
-        );
-        console.log(container);
-    });
 
+    const { container } = render(
+        <MockedProvider mocks={mockConn} addTypename={false}>
+            <PersonList persons={mockedPersons} />
+        </MockedProvider>
+    );
+
+    it('Count persons on list', () => {
+        const personCount = container.querySelectorAll('[class*="person_container"]');
+        expect(personCount.length).toBe(10);
+    });
 });

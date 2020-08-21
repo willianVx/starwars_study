@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Person from '../person/index';
 import DropDown from '../dropdown/index';
-import orderlistByName from '../../helpers/oderlistByName';
+import orderlistByName from '../../helpers/orderlistByName';
 import AllPersonDeleted from '../allPersonsDeleted';
 import './index.css';
 
@@ -14,7 +14,6 @@ const PersonList = ({ persons }) => {
         setPersonState(orderlistByName(newPersonList));
         return newPersonList;
     }
-    console.log(persons);
     return (
         <div>
             {personState.length &&
