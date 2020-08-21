@@ -25,18 +25,18 @@ Para ver o resultado das funções basta entrar na pasta ./functions e executar 
     - Ao final poderemos migrar os últimos dados, testar novamente e finalmente desligar a instância do MongoDB.
 
 ### Questão 2
-    Opção 1
+    #### Opção 1
 
     Podemos abordar o problema extraindo essa responsabilidade da API em um micro serviço. Dessa forma teríamos um processo completamente separado para lidar com essa demanda.Criando um endpoint em um subdomínio da API, como a informação do tempo de cada vídeo salva pelo usuário não depende de outros dados podemos subir outra instância de banco de dados somente para essa tarefa.
 
-    Opção 2
+    #### Opção 2
 
     Caso não seja possível criar um micro serviço. Podemos analisar a arquitetura da API em busca de oportunidades de otimização. Dependendo da linguagem seria possível utilizar processamento paralelo para diminuir o impacto das requisições no endpoint. Ainda assim poderíamos seguir com uma instância do banco de dados que armazena apenas esse dado.
 
-    Opção 3
+    #### Opção 3
 
     Pode ser utilizada em conjunto as opções anteriores. Como o dado a respeito da minutagem do vídeo muda constantemente e não é o tipo de informação que irá persistir por um longo período de tempo; acredito que possamos utilizar um banco de dados em memória como o Redis. Nesse caso a leitura é muito mais rápida e ainda pouparemos as consultas no banco de dados principal. Geralmente este tipo de DB é utilizado para realizar cache é verdade, mas mesmo assim acredito que seria uma alternativa.
 
-    Opção para o front-end
+    #### Opção para o front-end
 
     Ainda assim podemos melhorar a abordagem no front-end. Devemos salvar o status da minutagem do vídeo a cada 5s mas não necessariamente fazer uma requisição à API nesse espaço de tempo. O valor da minutagem pode ser salvo localmente e em um período maior de tempo enviado para a API. Para não perder informação adicionamos triggers na aplicação para caso o usuário pause o vídeo ou mude de aba no navegador a informação seja salva.
