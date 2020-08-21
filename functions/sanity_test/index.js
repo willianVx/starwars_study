@@ -31,4 +31,3 @@ const aulas = [
 const result = getOddHour(aulas);
 
 console.log(result);
-console.log(aulas);
